@@ -35,7 +35,7 @@ class Anonymizer:
         self.gen_path = os.path.join('data', 'adult_hierarchies')  # trailing /
 
         # folder for all results
-        res_folder = os.path.join('results', args.dataset + '_' + self.method)
+        res_folder = os.path.join('results')
 
         # path for anonymized datasets 輸出後的檔案位址
         self.anon_folder = res_folder  # trailing /
