@@ -4,9 +4,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, confusion_matrix
 
+# 修改此變數就好
+k = 30
+
 # 讀取資料，指定分隔符號為分號
 original_data = pd.read_csv('data/adult.csv', delimiter=';')
-anon_data = pd.read_csv('results/adult_anonymized_30.csv', delimiter=';')
+anon_data = pd.read_csv('results/adult_anonymized_' + str(k) + '.csv', delimiter=';')
 
 # 將資料進行 One-Hot Encoding
 X_original = pd.get_dummies(original_data.drop(columns=['salary-class']), drop_first=True)
@@ -53,7 +56,7 @@ print("Original Data Metrics:")
 for metric, value in metrics_original.items():
     print(f"{metric}: {value:.4f}")
 
-print("\nAnonymized Data Metrics:")
+print("\nAnonymized Data Metrics with k = " + str(k) + ":")
 for metric, value in metrics_anon.items():
     print(f"{metric}: {value:.4f}")
 
