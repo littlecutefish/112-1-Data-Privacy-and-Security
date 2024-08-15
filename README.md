@@ -13,4 +13,5 @@ python anonymize.py --method=mondrian --k=10 --dataset=adult
 
 2. 執行 compare.py 計算 Misclassification Error, Accuracy, Precision, Recall, AUC 指標
 
-![img.png](img.png)
+    (範例) 比較 origin & k = 30
+    ![img_1.png](img_1.png)
