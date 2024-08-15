@@ -51,12 +51,9 @@ class Anonymizer:
 
         data_params = get_dataset_params(self.data_name)
         QI_INDEX = data_params['qi_index']
-        IS_CAT2 = data_params['is_category']
 
-        QI_NAMES = list(np.array(ATT_NAMES)[QI_INDEX])
         IS_CAT = [True] * len(QI_INDEX)  # is all cat because all hierarchies are provided
         SA_INDEX = [index for index in range(len(ATT_NAMES)) if index not in QI_INDEX]
-        SA_var = [ATT_NAMES[i] for i in SA_INDEX]
 
         ATT_TREES = read_tree(
             self.gen_path,
