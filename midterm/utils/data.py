@@ -61,7 +61,7 @@ def transform_columns(data):
     return res
 
 
-def write_anon(path, anon_data, header, k, dataset, delimiter=';'):
+def write_anon(path, anon_data, header, k, dataset, method, delimiter=';'):
     if isinstance(anon_data, dict):
         anon_data = anon_data.values()
     else:
@@ -69,7 +69,7 @@ def write_anon(path, anon_data, header, k, dataset, delimiter=';'):
         anon_data = sorted(anon_data, key=lambda x: int(x[0]))
         anon_data = [anon_data]
     for i, data in enumerate(anon_data):
-        with open(os.path.join(path, dataset + "_anonymized_" + str(k) + ".csv"), mode='w', newline='') as anon_file:
+        with open(os.path.join(path, dataset + "_" + method + "_" + str(k) + ".csv"), mode='w', newline='') as anon_file:
             anon_writer = csv.writer(anon_file, delimiter=delimiter)
             anon_writer.writerow(header)
             anon_writer.writerows(data)

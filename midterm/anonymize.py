@@ -16,7 +16,7 @@ parser.add_argument('--method', type=str, default='mondrian_ldiv',
                     help="Anonymization Method")
 parser.add_argument('--k', type=int, default=10,
                     help="K-Anonymity or L-Diversity")
-parser.add_argument('--dataset', type=str, default='adult',
+parser.add_argument('--dataset', type=str, default='informs',
                     help="Dataset to anonymize")
 
 
@@ -32,7 +32,7 @@ class Anonymizer:
         self.data_path = os.path.join('data', self.csv_path)
 
         # Generalization hierarchies path
-        self.gen_path = os.path.join('data', 'adult_hierarchies')  # trailing /
+        self.gen_path = os.path.join('data', 'informs_hierarchies')  # trailing /
 
         # folder for all results
         res_folder = os.path.join('results')
@@ -90,7 +90,8 @@ class Anonymizer:
                 anon_data,
                 header,
                 self.k,
-                self.data_name)
+                self.data_name,
+                self.method)
 
         # Normalized Certainty Penalty
         ncp = NCP(anon_data, QI_INDEX, ATT_TREES)

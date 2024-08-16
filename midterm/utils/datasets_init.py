@@ -6,6 +6,11 @@ def get_dataset_params(name):
         target_var = 'salary-class'
         IS_CAT = [True, False, True, True, True, True, True, True]
         max_numeric = {"age": 50.5}
+    elif name == Dataset.INFORMS:
+        QI_INDEX = [3, 4, 6, 13, 16]
+        target_var = "poverty"
+        IS_CAT = [True, True, True, True, False]
+        max_numeric = {"DOBMM": None, "DOBYY": None, "RACEX": None, "EDUCYEAR": None, "income": None}
     else:
         print(f"Not support {name} dataset")
         raise ValueError

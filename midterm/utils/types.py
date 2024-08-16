@@ -6,6 +6,7 @@ from enum import Enum
 
 class Dataset(Enum):
     ADULT = 'adult'
+    INFORMS = 'informs'
 
     def __str__(self):
         return self.value
@@ -27,6 +28,9 @@ class AnonMethod(Enum):
 
     # Mondrian L-diversity
     MONDRIAN_LDIV = "mondrian_ldiv"
+
+    # T-closeness
+    MONDRIAN_TCLO = "mondrian_tclo"
     
     # # Top-Down Greedy
     # TOPDOWN = 'topdown'
