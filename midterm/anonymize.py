@@ -11,11 +11,11 @@ from algorithm import (
 from utils.datasets_init import get_dataset_params
 from utils.data import read_raw, write_anon, numberize_categories
 
-parser = argparse.ArgumentParser('K-Anonymize')
-parser.add_argument('--method', type=str, default='mondrian',
-                    help="K-Anonymity Method")
-parser.add_argument('--k', type=int, default=2,
-                    help="K-Anonymity")
+parser = argparse.ArgumentParser('Anonymization')
+parser.add_argument('--method', type=str, default='mondrian_ldiv',
+                    help="Anonymization Method")
+parser.add_argument('--k', type=int, default=10,
+                    help="K-Anonymity or L-Diversity")
 parser.add_argument('--dataset', type=str, default='adult',
                     help="Dataset to anonymize")
 
@@ -23,10 +23,10 @@ parser.add_argument('--dataset', type=str, default='adult',
 class Anonymizer:
     def __init__(self, args):
         self.method = args.method
-        assert self.method in ["mondrian"]
+        assert self.method in ["mondrian", "mondrian_ldiv"]
         self.k = args.k
         self.data_name = args.dataset
-        self.csv_path = args.dataset + '.csv'
+        self.csv_path = self.data_name + '.csv'
 
         # Dataset path
         self.data_path = os.path.join('data', self.csv_path)
@@ -37,7 +37,7 @@ class Anonymizer:
         # folder for all results
         res_folder = os.path.join('results')
 
-        # path for anonymized datasets 輸出後的檔案位址
+        # path for anonymized datasets
         self.anon_folder = res_folder  # trailing /
 
         os.makedirs(self.anon_folder, exist_ok=True)
@@ -115,10 +115,10 @@ class Anonymizer:
         '''
         1. NCP (Normalized Certainty Penalty): 
             -> NCP 衡量匿名化資料集中確保隱私的程度。其值範圍是 0 到 1，值越低表示資料的隱私保護效果越好。
-        
+
         2. CAVG (Average Equivalence Class Size):
             -> CAVG 衡量匿名化資料集中每個等價類的平均大小。理想情況下，CAVG 的值應該接近 1，表示每個等價類都包含幾乎相同數量的記錄。
-        
+
         3. DM (Discernibility Metric):
             -> DM 衡量匿名化資料集中的可區分性。它表示資料集中不同等價類的數量。數值越低表示資料越不可區分，即資料的隱私保護程度越高。
         '''
