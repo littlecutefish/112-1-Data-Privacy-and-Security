@@ -18,5 +18,6 @@ python anonymize.py --method=mondrian --k=10 --dataset=adult
    
    <img width="374" alt="截圖 2024-08-20 晚上11 44 00" src="https://github.com/user-attachments/assets/93a0ded7-537d-4e67-b3c0-7cb6e473e4d0">
 
+    (範例2) 比較 origin & k = 2000
 
-    
+   <img width="358" alt="截圖 2024-08-20 晚上11 46 35" src="https://github.com/user-attachments/assets/2a90cc48-c19a-4df1-b098-80364365de8f">
