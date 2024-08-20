@@ -69,4 +69,4 @@ def mondrian(partition):
 result = mondrian(data)
 print(result)
 result.to_csv('anon_k=' + str(k) + '_l=' + str(l) + '_t=' + str(t) + '.csv', index=False)
-#2024.08.20.劉俐妍到此一遊
+

@@ -6,6 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, confusion_matrix
+from sklearn.preprocessing import label_binarize
 
 # 讀取原始數據和處理後數據
 data_original = pd.read_csv('data/adult.csv', sep=';')
@@ -53,6 +54,7 @@ print(f"Precision: {precision_orig}")
 print(f"Recall: {recall_orig}")
 print(f"AUC: {auc_orig}")
 print(f"Confusion Matrix:\n {cm_orig}\n")
+
 
 def convert_intervals_to_midpoints(data):
     for column in data.columns:
