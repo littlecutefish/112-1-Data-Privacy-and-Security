@@ -14,6 +14,6 @@
 
    
 
-【參考：】
+【參考】
 - [https://github.com/kaylode/k-anonymity/tree/main](https://github.com/Manders-Ma/mondrian-demo/blob/master/k-anonymity%2BL-diversity%2BT-closeness.ipynb)
 - https://youtu.be/aky-3MfeJ4E?si=wVJa0lVpKoCya8d-
