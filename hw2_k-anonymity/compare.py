@@ -2,11 +2,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, confusion_matrix
 from sklearn.preprocessing import StandardScaler
-from xgboost import XGBClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # 修改此變數就好
-k = 100
-
+k = 30
 
 def encoder_and_scaler(table):
     table_x = table.iloc[:, :-1]
@@ -39,22 +38,22 @@ def print_metrics(y_true, preds):
 def train_and_predict(X, y):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=5)
 
-    # Instantiate the model
-    xg1 = XGBClassifier(verbosity=0, use_label_encoder=False)
+    # Use RandomForest
+    rf_mod = RandomForestClassifier()
 
-    # Fit the model
-    xg1 = xg1.fit(X_train, y_train)
+    # Fit the models
+    rf_mod.fit(X_train, y_train)
 
-    # Predict on the test set
-    xg1_y_pred = xg1.predict(X_test)
+    # Predict
+    rf_y_pred = rf_mod.predict(X_test)
 
     # Print metrics
-    print_metrics(y_test, xg1_y_pred)
+    print_metrics(y_test, rf_y_pred)
 
 
 # 讀取資料，指定分隔符號為分號
 original_data = pd.read_csv('data/adult.csv', delimiter=';')
-anon_data = pd.read_csv('results/adult_anonymized_' + str(k) + '.csv', delimiter=';')
+anon_data = pd.read_csv('results/anon_k=' + str(k) + '.csv', delimiter=',')
 
 # 將資料進行 One-Hot Encoding
 X_original, y_original = encoder_and_scaler(original_data)
