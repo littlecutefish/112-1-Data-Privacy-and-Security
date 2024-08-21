@@ -5,10 +5,10 @@ from scipy.stats import entropy
 # 假設敏感屬性為'salary-class'
 sensitive_attr = 'salary-class'
 l = 2
-t = 0.5
+t = 0.1
 
 data = pd.read_csv('data/adult.csv', sep=';')
-k = 30
+k = 100
 
 qis = ['sex', 'age', 'race', 'marital-status', 'education', 'native-country', 'workclass', 'occupation']
 

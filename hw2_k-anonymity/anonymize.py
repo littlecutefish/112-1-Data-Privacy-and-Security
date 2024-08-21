@@ -6,7 +6,7 @@ from scipy.stats import entropy
 sensitive_attr = 'salary-class'
 
 data = pd.read_csv('data/adult.csv', sep=';')
-k = 30
+k = 100
 
 qis = ['sex', 'age', 'race', 'marital-status', 'education', 'native-country', 'workclass', 'occupation']
 

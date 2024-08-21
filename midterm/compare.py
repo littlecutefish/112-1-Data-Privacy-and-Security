@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 # 修改此變數就好
 k = 100
 l = 2
-t = 0.5
+t = 0.1
 
 
 def encoder_and_scaler(table):
@@ -56,7 +56,7 @@ def train_and_predict(X, y):
 
 # 讀取資料，指定分隔符號為分號
 original_data = pd.read_csv('data/adult.csv', delimiter=';')
-anon_data = pd.read_csv('anon_k=' + str(k) + '_l=' + str(l) + '_t=' + str(t) + '.csv')
+anon_data = pd.read_csv('results/anon_k=' + str(k) + '_l=' + str(l) + '_t=' + str(t) + '.csv')
 
 # 將資料進行 One-Hot Encoding
 X_original, y_original = encoder_and_scaler(original_data)
