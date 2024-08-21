@@ -14,7 +14,7 @@ from utils.data import read_raw, write_anon, numberize_categories
 parser = argparse.ArgumentParser('K-Anonymize')
 parser.add_argument('--method', type=str, default='mondrian',
                     help="K-Anonymity Method")
-parser.add_argument('--k', type=int, default=2,
+parser.add_argument('--k', type=int, default=2000,
                     help="K-Anonymity")
 parser.add_argument('--dataset', type=str, default='adult',
                     help="Dataset to anonymize")
