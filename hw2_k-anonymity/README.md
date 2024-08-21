@@ -3,21 +3,15 @@
 參考：https://github.com/kaylode/k-anonymity/tree/main
 
 1. 透過 anonymize.py 產出隱私保護的.CSV檔案
-```
-# terminal, k可隨意改變
-python anonymize.py --method=mondrian --k=10 --dataset=adult
-```
 
 2. 執行 compare.py 計算 Misclassification Error, Accuracy, Precision, Recall, AUC 指標
 
     (範例1) 比較 origin & k = 30
-   
-    <img width="364" alt="截圖 2024-08-20 晚上11 44 43" src="https://github.com/user-attachments/assets/3e97a2b1-c010-410f-91ee-1366a5956157">
+
+   <img width="353" alt="截圖 2024-08-21 上午10 17 17" src="https://github.com/user-attachments/assets/6a61961e-ccd9-4625-abd1-69c6ce3580ab">
 
     (範例2) 比較 origin & k = 100
+
+   <img width="360" alt="截圖 2024-08-21 上午10 18 18" src="https://github.com/user-attachments/assets/03ced62b-ef43-4e42-9bb4-ae8e9ae1852a">
+
    
-   <img width="374" alt="截圖 2024-08-20 晚上11 44 00" src="https://github.com/user-attachments/assets/93a0ded7-537d-4e67-b3c0-7cb6e473e4d0">
-
-    (範例2) 比較 origin & k = 2000
-
-   <img width="358" alt="截圖 2024-08-20 晚上11 46 35" src="https://github.com/user-attachments/assets/2a90cc48-c19a-4df1-b098-80364365de8f">
