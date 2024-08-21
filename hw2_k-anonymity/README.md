@@ -1,6 +1,8 @@
 ## Hw2 - k-anonymity
 
-參考：https://github.com/kaylode/k-anonymity/tree/main
+【參考：】
+- [https://github.com/kaylode/k-anonymity/tree/main](https://github.com/Manders-Ma/mondrian-demo/blob/master/k-anonymity%2BL-diversity%2BT-closeness.ipynb)
+- https://youtu.be/aky-3MfeJ4E?si=wVJa0lVpKoCya8d-
 
 1. 透過 anonymize.py 產出隱私保護的.CSV檔案
 
