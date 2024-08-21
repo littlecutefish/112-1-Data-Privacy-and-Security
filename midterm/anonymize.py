@@ -1,15 +1,17 @@
+import os
 import pandas as pd
 from scipy.stats import entropy
 
 # 假設敏感屬性為'salary-class'
 sensitive_attr = 'salary-class'
-l = 1
-t = 1
+l = 2
+t = 0.5
 
 data = pd.read_csv('data/adult.csv', sep=';')
-k = 2
+k = 30
 
 qis = ['sex', 'age', 'race', 'marital-status', 'education', 'native-country', 'workclass', 'occupation']
+
 
 def check_l_diversity(partition, l):
     # 計算敏感屬性的多樣性
@@ -36,6 +38,7 @@ def summarized(partition, dim):
 
     return partition
 
+
 def anonymize(partition, ranks):
     dim = ranks[0][0]
 
@@ -53,6 +56,7 @@ def anonymize(partition, ranks):
 
     return summarized(partition, dim)
 
+
 def mondrian(partition):
     ranks = {}
 
@@ -66,7 +70,12 @@ def mondrian(partition):
 
     return anonymize(partition, ranks)
 
-result = mondrian(data)
-print(result)
-result.to_csv('anon_k=' + str(k) + '_l=' + str(l) + '_t=' + str(t) + '.csv', index=False)
 
+result = mondrian(data)
+
+output_dir = 'results'
+os.makedirs(output_dir, exist_ok=True)
+
+# 將結果保存到CSV文件
+output_file = os.path.join(output_dir, f'anon_k={k}_l={l}_t={t}.csv')
+result.to_csv(output_file, index=False)
